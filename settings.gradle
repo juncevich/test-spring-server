@@ -1,0 +1,6 @@
+rootProject.name = 'test-spring-server'
+
+include 'reactive-client'
+include 'reactive-server'
+include 'web-client'
+include 'web-server'
