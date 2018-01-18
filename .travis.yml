@@ -1,5 +1,9 @@
 language: java
 
+install:
+  - gradle --daemon
+  - gradle assemble
+  
 before_install:
  - chmod +x gradlew
 
