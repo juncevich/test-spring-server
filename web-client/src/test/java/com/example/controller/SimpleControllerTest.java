@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Before;
@@ -21,6 +22,6 @@ public class SimpleControllerTest {
     @Test public void test() throws Exception {
 
         this.mockMvc.perform(post("/sync/client/test").accept(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk()).andExpect(content().contentType("application/json;charset=UTF-8"));
     }
 }
