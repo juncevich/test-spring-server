@@ -1,20 +1,19 @@
 package com.example.reactiveserver.controllers;
 
+import java.time.Instant;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import com.example.common.model.TestCase;
-
 public class SimpleReactiveServerControllerTest {
 
     private WebTestClient webTestClient;
-
-    private SimpleReactiveServerController simpleReactiveServerController;
-
+    SimpleReactiveServerController simpleReactiveServerController;
     @Before public void setUp() {
 
-        simpleReactiveServerController = new SimpleReactiveServerController();
+         simpleReactiveServerController =
+                new SimpleReactiveServerController();
         webTestClient = WebTestClient.bindToController(simpleReactiveServerController).build();
     }
 
@@ -25,7 +24,12 @@ public class SimpleReactiveServerControllerTest {
 
     @Test public void testTestCaseResponse() {
 
-        webTestClient.get().uri("/async/server/test").exchange().expectBody(TestCase.class);
+//        BDDMockito.given(simpleReactiveServerController.getTestCaseMessage()).willReturn(
+//                just(TestCase.builder().startTime(Instant
+//                        .now()).build().getDurationTime()));
+//        
+//        
+        webTestClient.get().uri("/async/server/test_case").exchange().expectBody(Instant.class).returnResult();
 
     }
 }
