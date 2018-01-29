@@ -1,7 +1,5 @@
 package com.example.reactiveserver.controllers;
 
-import java.time.Instant;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,10 +14,11 @@ import reactor.core.publisher.Mono;
         return Mono.just("Test message");
     }
 
-    @GetMapping("/async/server/test_case") Mono<Instant> getTestCaseMessage() {
+    @GetMapping("/async/server/test_case") Mono<TestCase> getTestCaseMessage() {
 
         TestCase testCase = TestCase.builder().build();
         testCase.initStartTime();
-        return Mono.just(testCase.getDurationTime());
+        testCase.getDurationTime();
+        return Mono.just(testCase);
     }
 }
