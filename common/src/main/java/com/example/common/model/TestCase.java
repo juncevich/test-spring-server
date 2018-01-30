@@ -5,10 +5,12 @@ import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 @Data
 @Builder
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class TestCase {
     Instant startTime;
     Instant endTime;
@@ -19,7 +21,7 @@ public class TestCase {
         startTime = Instant.now();
     }
 
-    public void initEndTime(){
+    private void initEndTime(){
         endTime = Instant.now();
     }
     public Instant getDurationTime() {

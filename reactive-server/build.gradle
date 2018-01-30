@@ -29,10 +29,10 @@ repositories {
 
 
 dependencies {
+	compile project(':common')
 	compile('org.springframework.boot:spring-boot-starter-webflux')
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('io.projectreactor:reactor-test')
-	compile project(':common')
 }
