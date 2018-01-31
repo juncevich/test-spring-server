@@ -1,19 +1,19 @@
 package com.example.common.model;
 
-import java.time.Instant;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+
+import java.time.Instant;
 
 @Data
 @Builder
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class TestCase {
-    Instant startTime;
-    Instant endTime;
+    private Instant startTime;
+    private Instant endTime;
     Instant durationTime;
 
 
